@@ -16,4 +16,4 @@
 
 ## Documentation
 
-[Documentation]()
+[Documentation](https://github.com/victorgearhead/connectXpert/blob/main/Report.pdf)[Instructions](https://github.com/victorgearhead/connectXpert/blob/main/README.pdf)
