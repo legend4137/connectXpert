@@ -12,7 +12,7 @@
 
 ## Demo
 
-[Demo]()    [Slides]()
+[Demo]()
 
 ## Documentation
 
