@@ -279,9 +279,8 @@ def sftp_receive(name):
 
         foldername = "user_dest.txt"
         try :
-            if save_directory:
-                with open(foldername, "r") as file:
-                    save_directory = file.read().strip()
+            with open(foldername, "r") as file:
+                save_directory = file.read().strip()
         except FileNotFoundError:
             pass
 
