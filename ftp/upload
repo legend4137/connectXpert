@@ -1,0 +1,53 @@
+# Import Module
+import ftplib
+import sys
+
+
+# Information about the server which will be in the debian package
+HOSTNAME = "172.19.69.007"
+USERNAME = "dooploop"
+PASSWORD = "qwertyuiop12345"
+
+try:
+    # Connect FTP Server
+    ftp_server = ftplib.FTP(HOSTNAME, USERNAME, PASSWORD)
+    ftp_server.encoding = "utf-8"
+
+    # The 3rd argument will be the file we want to share with the other person
+    filename = sys.argv[2]
+
+    with open("user_id.txt", "r") as dir_file:
+        sender_name = dir_file.read().strip()
+
+    # The 2nd argument will br the name/id of the person whom we want to share our file
+    receiver_name = sys.argv[1]
+
+    # The directory will follow this convention to store the file in the server
+    directory_name = sender_name + "->" + receiver_name
+
+
+    # Checking if the directory already exists
+    existing_directories = ftp_server.nlst()
+    if directory_name in existing_directories:
+        print("Directory already exists.")
+    else:
+        ftp_server.mkd(directory_name)
+        print("Directory created successfully.")
+
+    # Uploading the file in the desired directory
+    with open(filename, "rb") as file:
+        ftp_server.storbinary(f"STOR {directory_name}/{filename}", file)
+
+except ftplib.all_errors as error:
+    print(f"FTP Error: {error}")
+
+except IndexError:
+    print("Error: Missing command-line arguments. Please provide receiver name and filename.")
+
+except FileNotFoundError:
+    print("Error: File not found.")
+
+finally:
+    # Close the Connection
+    if 'ftp_server' in locals():
+        ftp_server.quit()
