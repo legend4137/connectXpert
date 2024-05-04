@@ -12,8 +12,8 @@
 
 ## Demo
 
-[Demo]()[Slides]()
+[Demo]()    [Slides]()
 
 ## Documentation
 
-[Documentation](https://github.com/victorgearhead/connectXpert/blob/main/Report.pdf)[Instructions](https://github.com/victorgearhead/connectXpert/blob/main/README.pdf)
+[Documentation](https://github.com/victorgearhead/connectXpert/blob/main/Report.pdf)    [Instructions](https://github.com/victorgearhead/connectXpert/blob/main/README.pdf)
